@@ -1,11 +1,19 @@
-const express = require('express');
+const mongoose = require('mongoose');
 
-const app = express();
+require('./config/database');
 
-app.get('/', function (req, res) {
-  res.send(JSON.stringify({ res: "Hello World" }));
+const User = mongoose.model('User');
+
+const instance = new User({
+  name: 'Nelson',
+  surname: 'Pastelson',
+});
+instance.save(function (err) {
+  if (err) {
+    console.log('error faltal', err);
+  }
 });
 
-app.listen(3000);
+require('./config/express');
 
 console.log('listening on http://localhost:3000/');

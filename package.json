@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/nicolkill/node-class#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.6.10"
   }
 }
