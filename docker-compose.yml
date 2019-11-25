@@ -1,0 +1,27 @@
+version: "3"
+services:
+  app:
+    build: ./
+    image: node_class:latest
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+
+      # Mongodb configuration
+      MONGODB_HOST: mongo:27017
+      MONGODB_OPTIONS: authSource=admin
+      MONGODB_DATABASE: node_class
+      MONGODB_USER: node_class
+      MONGODB_PASSWORD: node_class
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: node_class
+      MONGO_INITDB_ROOT_PASSWORD: node_class
