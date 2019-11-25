@@ -8,4 +8,4 @@ function config(app) {
   app.delete('/users/:id', controller.delete);
 }
 
-export default config;
+module.exports = config;
